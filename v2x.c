@@ -7,7 +7,7 @@
  * mensagem se perder, e acima de um certo alcance nao chega de todo.
  *
  * A experiencia: correr com alcance grande (o aviso chega, ninguem bate) e com
- * alcance pequeno (o aviso nao chega, batem). Mesmo codigo, so muda o radio.
+ * alcance pequeno (o aviso nao chega, batem).
  *
  * Uso:  ./v2x <alcance_em_metros>
  *       ./v2x 300   -> o aviso chega, os carros travam a tempo
@@ -28,22 +28,22 @@
 #define INSTANTE_TRAVAGEM 8.0  /* o carro da frente trava aos 8 segundos */
 
 /* tipos de mensagem */
-#define MSG_POSICAO 0   /* "estou aqui, a esta velocidade" */
-#define MSG_TRAVAGEM 1  /* "atencao, travei!" */
+#define MSG_POSICAO 0   
+#define MSG_TRAVAGEM 1  
 
-/* uma mensagem de radio */
+// mensagem de radio
 typedef struct {
-    int    tipo;        /* MSG_POSICAO ou MSG_TRAVAGEM */
-    int    emissor;     /* qual carro a enviou */
-    double posicao;     /* onde estava quem a enviou */
+    int    tipo;        
+    int    emissor;     
+    double posicao;     
 } Mensagem;
 
-/* um carro */
+// carro
 typedef struct {
     double posicao;
     double velocidade;
-    int    esta_a_travar;       /* o carro da frente (0) usa isto */
-    int    sabe_do_perigo;      /* os de tras: so fica 1 se receberem o aviso */
+    int    esta_a_travar;       
+    int    sabe_do_perigo;      /
 } Carro;
 
 static Carro carros[N_CARROS];
